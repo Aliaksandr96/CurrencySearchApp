@@ -20,7 +20,22 @@ final class NetworkManager {
     
     private init() {}
     
-    func getCurrencyFromApi() {
+    func getCurrencyFromApi(completion: @escaping(Result<[CurrencyModel],Error>)-> Void) {
+        guard let url = URL(string: Constants.urlString + ApiKey.key) else { return }
         
+        URLSession.shared.dataTask(with: url) {(data, response, error) in
+            DispatchQueue.main.async {
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            guard let data = data else { return }
+            do {
+                let jsonData = try JSONDecoder().decode([CurrencyModel].self, from: data)
+                completion(.success(jsonData))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        }.resume()
     }
 }
