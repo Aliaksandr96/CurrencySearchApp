@@ -13,7 +13,7 @@ final class NetworkManager {
         static let urlString = "https://rest.coinapi.io/v1/assets?apikey="
     }
     enum ApiKey {
-        static let key = "60C0590F-E58A-4B64-9F94-FB080379A228"
+        static let key = "9739A2D8-6560-4632-946C-D2F18C16441B"
     }
     
     static let shared = NetworkManager()

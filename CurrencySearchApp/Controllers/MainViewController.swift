@@ -7,28 +7,24 @@
 
 import UIKit
 
-protocol CurrencyTableViewDelegate: AnyObject {
-    func helperButtonDidTapped()
-}
-
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     // MARK: - UI Element's
     @IBOutlet weak var currencyTableView: UITableView!
     
     // MARK: - Varibles
-    var currencyArray = [CurrencyModel]()
+   private var currencyArray = [CurrencyModel]()
     
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+    
         getCurrencyFromApi()
         setupCurrencyTable()
     }
     
     //MARK: - Get Currency From Api
-    func getCurrencyFromApi() {
+    private func getCurrencyFromApi() {
         NetworkManager.shared.getCurrencyFromApi { [weak self] (result) in
             switch result {
             case .success(let currencyData):
@@ -42,7 +38,7 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Setup Currency Table
-    func setupCurrencyTable() {
+    private func setupCurrencyTable() {
         currencyTableView.delegate = self
         currencyTableView.dataSource = self
         
@@ -76,7 +72,15 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let saveSelectRow = currencyArray[indexPath.row]
+        
+        /// save model clicked row
+        if let encoded = try? JSONEncoder().encode(saveSelectRow) {
+            UserDefaults.standard.set(encoded, forKey: "saveModel")
+            
+        let detailViewController = DetailViewController()
+        navigationController?.pushViewController(detailViewController, animated: true)
 
+        }
     }
 }
-

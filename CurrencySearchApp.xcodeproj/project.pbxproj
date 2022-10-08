@@ -17,6 +17,7 @@
 		DA1C44E728F0CC960009B4E4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C44E628F0CC960009B4E4 /* NetworkManager.swift */; };
 		DA1C44EA28F14D990009B4E4 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C44E828F14D990009B4E4 /* CurrencyTableViewCell.swift */; };
 		DA1C44EB28F14D990009B4E4 /* CurrencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1C44E928F14D990009B4E4 /* CurrencyTableViewCell.xib */; };
+		DA631CE028F1F92800A54F31 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA631CDF28F1F92700A54F31 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		DA1C44E628F0CC960009B4E4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DA1C44E828F14D990009B4E4 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		DA1C44E928F14D990009B4E4 /* CurrencyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyTableViewCell.xib; sourceTree = "<group>"; };
+		DA631CDF28F1F92700A54F31 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				DA1C44C228F0C6A00009B4E4 /* MainViewController.swift */,
+				DA631CDF28F1F92700A54F31 /* DetailViewController.swift */,
 				DA1C44C428F0C6A00009B4E4 /* Main.storyboard */,
 			);
 			path = Controllers;
@@ -197,6 +200,7 @@
 				DA1C44BF28F0C6A00009B4E4 /* AppDelegate.swift in Sources */,
 				DA1C44D728F0C8490009B4E4 /* CurrencyModel.swift in Sources */,
 				DA1C44C128F0C6A00009B4E4 /* SceneDelegate.swift in Sources */,
+				DA631CE028F1F92800A54F31 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

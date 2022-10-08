@@ -18,3 +18,4 @@ struct CurrencyModel: Codable {
         case id = "asset_id"
     }
 }
+
