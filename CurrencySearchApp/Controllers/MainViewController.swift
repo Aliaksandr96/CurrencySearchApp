@@ -9,8 +9,11 @@ import UIKit
 
 final class MainViewController: UIViewController {
 
-    // MARK: - UI Element's
+    // MARK: - Outlets
     @IBOutlet weak var currencyTableView: UITableView!
+    
+    // MARK: - UI Elements
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     // MARK: - Varibles
    private var currencyArray = [CurrencyModel]()
@@ -20,8 +23,22 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         
         setupTitleAttributes()
-        getCurrencyFromApi()
         setupCurrencyTable()
+    }
+    
+    // MARK: - View Will Appear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupActivityIndicator()
+        getCurrencyFromApi()
+    }
+    
+    // MARK: - Setup Activity Indicator
+    private func setupActivityIndicator() {
+        activityIndicator.color = .blue
+        activityIndicator.center = self.view.center
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
     }
     
     // MARK: - Title Attributes
@@ -41,6 +58,7 @@ final class MainViewController: UIViewController {
                     self?.currencyArray = currencyData
                     
                     self?.currencyTableView.reloadData()
+                    self?.activityIndicator.removeFromSuperview()
                     
                 case .failure(let error): print(error.localizedDescription)
                 }
@@ -83,15 +101,14 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let saveSelectRow = currencyArray[indexPath.row]
+            let saveSelectRow = currencyArray[indexPath.row]
         
         /// save model clicked row
-        if let encoded = try? JSONEncoder().encode(saveSelectRow) {
+                    if let encoded = try? JSONEncoder().encode(saveSelectRow) {
             UserDefaults.standard.set(encoded, forKey: "saveModel")
-            
+        }
+        
         let detailViewController = DetailViewController()
         navigationController?.pushViewController(detailViewController, animated: true)
-
-        }
     }
 }
