@@ -24,7 +24,6 @@ final class NetworkManager {
         guard let url = URL(string: Constants.urlString + ApiKey.key) else { return }
 
         URLSession.shared.dataTask(with: url) {(data, response, error) in
-            DispatchQueue.main.async {
             if let error = error {
                 print(error.localizedDescription)
             }
@@ -35,7 +34,6 @@ final class NetworkManager {
             } catch {
                 completion(.failure(error))
             }
-        }
         }.resume()
     }
 }

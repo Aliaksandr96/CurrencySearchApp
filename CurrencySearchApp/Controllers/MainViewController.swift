@@ -35,13 +35,15 @@ final class MainViewController: UIViewController {
     //MARK: - Get Currency From Api
     private func getCurrencyFromApi() {
         NetworkManager.shared.getCurrencyFromApi { [weak self] (result) in
-            switch result {
-            case .success(let currencyData):
-                self?.currencyArray = currencyData
-                
-                self?.currencyTableView.reloadData()
-                
-            case .failure(let error): print(error.localizedDescription)
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let currencyData):
+                    self?.currencyArray = currencyData
+                    
+                    self?.currencyTableView.reloadData()
+                    
+                case .failure(let error): print(error.localizedDescription)
+                }
             }
         }
     }
