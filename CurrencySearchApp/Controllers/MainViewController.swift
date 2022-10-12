@@ -18,9 +18,18 @@ final class MainViewController: UIViewController {
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        setupTitleAttributes()
         getCurrencyFromApi()
         setupCurrencyTable()
+    }
+    
+    // MARK: - Title Attributes
+    private func setupTitleAttributes() {
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24)
+        ]
     }
     
     //MARK: - Get Currency From Api

@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="View Controller" customClass="MainViewController" customModule="CurrencySearchApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Exchange Rates" id="BYZ-38-t0r" userLabel="View Controller" customClass="MainViewController" customModule="CurrencySearchApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,6 +24,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="backgroundColor"/>
+                        <color key="tintColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="W0c-7J-whx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OAt-ua-zjj"/>
                             <constraint firstItem="W0c-7J-whx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="OOJ-iJ-mLz"/>
@@ -31,7 +32,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="W0c-7J-whx" secondAttribute="bottom" id="qh5-79-6FY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Exhcange Rates" id="I2w-f7-Zef"/>
+                    <navigationItem key="navigationItem" title="Exchange Rates" leftItemsSupplementBackButton="YES" id="I2w-f7-Zef">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="" value=""/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="currencyTableView" destination="W0c-7J-whx" id="rxM-cZ-4rU"/>
                     </connections>

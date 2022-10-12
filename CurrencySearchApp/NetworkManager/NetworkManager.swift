@@ -22,7 +22,7 @@ final class NetworkManager {
     
     func getCurrencyFromApi(completion: @escaping(Result<[CurrencyModel],Error>)-> Void) {
         guard let url = URL(string: Constants.urlString + ApiKey.key) else { return }
-        
+
         URLSession.shared.dataTask(with: url) {(data, response, error) in
             DispatchQueue.main.async {
             if let error = error {
