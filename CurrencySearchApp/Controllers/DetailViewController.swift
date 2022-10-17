@@ -21,17 +21,13 @@ final class DetailViewController: UIViewController {
         
         setupNameCurrencyLabel()
         setupPriceCurrencyLabel()
-        setModelCurrency()
+
     }
     
     // MARK: - Set Model Currency From View Controller
-    private func setModelCurrency() {
-        if let data = UserDefaults.standard.object(forKey: "saveModel") as? Data,
-           let getModel = try? JSONDecoder().decode(CurrencyModel.self, from: data) {
-            
-            nameCurrencyLabel.text = "\(getModel.name) (\(getModel.id))"
-            priceCurrencyLabel.text = "$ \(String(format: "%.3f", getModel.price ?? 0))"
-        }
+    func setModelCurrency(nameCurrency: String, priceCurrency: Double) {
+        nameCurrencyLabel.text = nameCurrency
+        priceCurrencyLabel.text = "$ \(String(format: "%.3f", priceCurrency))"
     }
     
     // MARK: - Setup Name Currency Label

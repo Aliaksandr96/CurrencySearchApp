@@ -22,7 +22,6 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTitleAttributes()
         setupCurrencyTable()
     }
     
@@ -40,15 +39,7 @@ final class MainViewController: UIViewController {
         activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
     }
-    
-    // MARK: - Title Attributes
-    private func setupTitleAttributes() {
-        navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24)
-        ]
-    }
-    
+
     //MARK: - Get Currency From Api
     private func getCurrencyFromApi() {
         NetworkManager.shared.getCurrencyFromApi { [weak self] (result) in
@@ -101,14 +92,13 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let saveSelectRow = currencyArray[indexPath.row]
-        
-        /// save model clicked row
-                    if let encoded = try? JSONEncoder().encode(saveSelectRow) {
-            UserDefaults.standard.set(encoded, forKey: "saveModel")
-        }
-        
+        let saveSelectRow = currencyArray[indexPath.row]
+
         let detailViewController = DetailViewController()
+        
+        detailViewController.setModelCurrency(nameCurrency: saveSelectRow.name,
+                                              priceCurrency: saveSelectRow.price ?? 0)
+        
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
