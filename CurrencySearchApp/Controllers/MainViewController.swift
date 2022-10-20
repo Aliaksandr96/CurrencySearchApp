@@ -15,6 +15,9 @@ final class MainViewController: UIViewController {
     // MARK: - UI Elements
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
+    // MARK: - Constants
+    private let detailViewController = DetailViewController()
+    
     // MARK: - Varibles
    private var currencyArray = [CurrencyModel]()
     
@@ -28,8 +31,8 @@ final class MainViewController: UIViewController {
     // MARK: - View Will Appear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupActivityIndicator()
         getCurrencyFromApi()
+        setupActivityIndicator()
     }
     
     // MARK: - Setup Activity Indicator
@@ -92,13 +95,10 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let saveSelectRow = currencyArray[indexPath.row]
-
-        let detailViewController = DetailViewController()
+        let saveSelectRow = currencyArray[indexPath.row].id
         
-        detailViewController.setModelCurrency(nameCurrency: saveSelectRow.name,
-                                              priceCurrency: saveSelectRow.price ?? 0)
+        detailViewController.setIdCurrency(currencyID: saveSelectRow)
         
-        navigationController?.pushViewController(detailViewController, animated: true)
+            navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

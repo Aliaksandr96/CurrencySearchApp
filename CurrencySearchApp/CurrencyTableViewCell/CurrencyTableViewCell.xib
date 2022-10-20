@@ -52,7 +52,7 @@
                 <outlet property="currencyNameLabel" destination="dLC-Sy-QXV" id="KG9-sY-ehl"/>
                 <outlet property="currencyPriceLabel" destination="UMp-Cw-lKS" id="cs3-jW-Pee"/>
             </connections>
-            <point key="canvasLocation" x="48" y="-12"/>
+            <point key="canvasLocation" x="-692" y="-25"/>
         </tableViewCell>
     </objects>
     <resources>
