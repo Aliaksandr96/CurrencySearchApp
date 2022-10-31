@@ -9,11 +9,14 @@ import Foundation
 protocol CurrencyListPresenterProtocol {
     func getCurrency()
     func moveToDetailView(with model: CurrencyModel)
+    var currency: [CurrencyModel] { get }
 }
 
 final class CurrencyListPresenter: CurrencyListPresenterProtocol {
+    
     // MARK: Public
     unowned var view: CurrencyListViewProtocol
+    var currency: [CurrencyModel] = []
     
     // MARK: Private
     private let router: CurrencyListRouterProtocol
@@ -36,7 +39,10 @@ final class CurrencyListPresenter: CurrencyListPresenterProtocol {
             guard let data = data else { return }
             do {
                 let jsonData = try JSONDecoder().decode([CurrencyModel].self, from: data)
-                self?.view.updateTable(with: jsonData)
+                DispatchQueue.main.async {
+                    self?.currency = jsonData
+                    self?.view.updateTable()
+                }
             } catch {
                 print("We have error in block catch : \(error.localizedDescription)")
             }

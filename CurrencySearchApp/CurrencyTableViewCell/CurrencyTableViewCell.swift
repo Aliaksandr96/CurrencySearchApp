@@ -33,7 +33,7 @@ final class CurrencyListTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             nameCurrencyLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            nameCurrencyLabel.widthAnchor.constraint(equalToConstant: 20),
+            nameCurrencyLabel.widthAnchor.constraint(equalToConstant: 200),
             nameCurrencyLabel.heightAnchor.constraint(equalToConstant: 40),
             nameCurrencyLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant:  20),
 

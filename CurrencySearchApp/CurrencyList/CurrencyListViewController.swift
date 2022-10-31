@@ -7,13 +7,12 @@
 import UIKit
 
 protocol CurrencyListViewProtocol: AnyObject {
-    func updateTable(with model: [CurrencyModel])
+    func updateTable()
     func setupActivityIndicator()
 }
 
 final class CurrencyListViewController: UIViewController {
-    // MARK: Public
-    var currencyArray = [CurrencyModel]()
+    // MARK: Public   
     var presenter: CurrencyListPresenterProtocol!
     
     // MARK: Private
@@ -61,14 +60,14 @@ final class CurrencyListViewController: UIViewController {
 // MARK: - Extensions
 extension CurrencyListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      currencyArray.count
+        presenter.currency.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyListTableViewCell", for: indexPath) as? CurrencyListTableViewCell else { return UITableViewCell() }
-        let priceCurrency =  String(format: "%.3f", currencyArray[indexPath.row].price ?? 0)
-        
-        cell.nameCurrencyLabel.text = currencyArray[indexPath.row].name
+        let priceCurrency =  String(format: "%.3f", presenter.currency[indexPath.row].price ?? 0)
+
+        cell.nameCurrencyLabel.text = presenter.currency[indexPath.row].name
         cell.priceCurrencyLabel.text = priceCurrency
     
         return cell
@@ -77,17 +76,14 @@ extension CurrencyListViewController: UITableViewDataSource {
 
 extension CurrencyListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectRow = currencyArray[indexPath.row]
+        let selectRow = presenter.currency[indexPath.row]
         presenter.moveToDetailView(with: selectRow)
     }
 }
 
 extension CurrencyListViewController: CurrencyListViewProtocol {
-    func updateTable(with model: [CurrencyModel]) {
-        self.currencyArray = model
-        DispatchQueue.main.async {
+    func updateTable() {
             self.currencyListTable.reloadData()
-        }
     }
     
     func setupActivityIndicator() {
