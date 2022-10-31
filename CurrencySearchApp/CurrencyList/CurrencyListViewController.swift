@@ -33,7 +33,6 @@ final class CurrencyListViewController: UIViewController {
         super.viewWillAppear(animated)
         presenter.getCurrency()
         setupActivityIndicator()
-        print("table reload")
     }
     
     // MARK: - Setups
