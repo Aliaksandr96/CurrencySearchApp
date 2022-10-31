@@ -9,6 +9,7 @@ import UIKit
 protocol CurrencyListViewProtocol: AnyObject {
     func updateTable()
     func setupActivityIndicator()
+    func stopActivityIndicator()
 }
 
 final class CurrencyListViewController: UIViewController {
@@ -30,7 +31,9 @@ final class CurrencyListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        presenter.getCurrency()
+        setupActivityIndicator()
+        print("table reload")
     }
     
     // MARK: - Setups
@@ -83,13 +86,17 @@ extension CurrencyListViewController: UITableViewDelegate {
 
 extension CurrencyListViewController: CurrencyListViewProtocol {
     func updateTable() {
-            self.currencyListTable.reloadData()
+            currencyListTable.reloadData()
+            stopActivityIndicator()
     }
-    
     func setupActivityIndicator() {
         activityIndicator.color = .blue
         activityIndicator.center = self.view.center
         activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
+    }
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.hidesWhenStopped = true
     }
 }

@@ -25,7 +25,6 @@ final class CurrencyListPresenter: CurrencyListPresenterProtocol {
     init(view:CurrencyListViewProtocol, router: CurrencyListRouterProtocol){
         self.view = view
         self.router = router
-        getCurrency()
     }
     
     // MARK: - API
