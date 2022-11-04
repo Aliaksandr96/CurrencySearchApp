@@ -12,6 +12,7 @@ UIKit
 
 ```ruby
 Storyboard
+Programmatically
 ```
 
 ## [API](https://rest.coinapi.io)
