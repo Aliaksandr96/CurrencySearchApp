@@ -8,6 +8,12 @@ Creating an application to view and search for various currencies
 UIKit
 ```
 
+## Architecture pattern
+
+```ruby
+Model-View-Presenter( MVP )
+```
+
 ## Interface
 
 ```ruby
