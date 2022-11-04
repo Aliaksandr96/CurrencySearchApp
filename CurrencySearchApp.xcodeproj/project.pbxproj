@@ -71,7 +71,11 @@
 			isa = PBXGroup;
 			children = (
 				DA1C44DF28F0C9E30009B4E4 /* Models */,
+<<<<<<< HEAD
 				DA1C44D928F0C86F0009B4E4 /* Controllers */,
+=======
+				DA1C44D928F0C86F0009B4E4 /* ViewControllers */,
+>>>>>>> main
 				DA1C44E528F0CB6C0009B4E4 /* CurrencyTableViewCell */,
 				DA1C44E228F0CA8C0009B4E4 /* NetworkManager */,
 				DA6068B629015B4800C2DF6A /* Extensions */,
@@ -80,14 +84,18 @@
 			path = CurrencySearchApp;
 			sourceTree = "<group>";
 		};
-		DA1C44D928F0C86F0009B4E4 /* Controllers */ = {
+		DA1C44D928F0C86F0009B4E4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				DA1C44C228F0C6A00009B4E4 /* MainViewController.swift */,
 				DA631CDF28F1F92700A54F31 /* DetailViewController.swift */,
 				DA1C44C428F0C6A00009B4E4 /* Main.storyboard */,
 			);
+<<<<<<< HEAD
 			path = Controllers;
+=======
+			path = ViewControllers;
+>>>>>>> main
 			sourceTree = "<group>";
 		};
 		DA1C44DF28F0C9E30009B4E4 /* Models */ = {
@@ -215,8 +223,11 @@
 				DA1C44D728F0C8490009B4E4 /* CurrencyModel.swift in Sources */,
 				DA6068B529015B3100C2DF6A /* Extension + ImageView.swift in Sources */,
 				DA1C44C128F0C6A00009B4E4 /* SceneDelegate.swift in Sources */,
+<<<<<<< HEAD
 				DA631CE028F1F92800A54F31 /* DetailViewController.swift in Sources */,
 				DA6068B329004BC100C2DF6A /* CurrencyIconModel.swift in Sources */,
+=======
+>>>>>>> main
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
