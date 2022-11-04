@@ -11,7 +11,7 @@ UIKit
 ## Architecture pattern
 
 ```ruby
-ModelViewPresenter( MVP )
+ModelViewPresenter(MVP)
 ```
 
 ## Interface
